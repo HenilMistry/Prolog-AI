@@ -75,7 +75,7 @@ daughter(Child,Parent):-
 
 % rule for grandfather
 grandfather(Child,Male):-
-    male(Male),parent(Child,X),parent(X,Male).
+    male(Male),parent(X,Male),parent(Child,X).
 
 % rule for grandmother
 grandmother(Child,Female):-
@@ -88,3 +88,27 @@ brother(Child,AnotherChild):-
 % rule for sister
 sister(Child,AnotherChild):-
     female(AnotherChild),parent(Child,P),parent(AnotherChild,P).
+
+uncle(Child,Male):-
+    brother(X,Male),parent(Child,X).
+
+aunt(Child,Female):-
+    sister(P,Female),parent(Child,P).
+
+nephew(Child,P):-
+    male(Child),brother(A,P),parent(Child,A).
+
+nephew(Child,P):-
+    male(Child),sister(A,P),parent(Child,A).
+
+niece(Child,P):-
+    female(Child),brother(A,P),parent(Child,A).
+
+niece(Child,P):-
+    female(Child),sister(A,P),parent(Child,A).
+
+cousines(C1,C2):-
+    parent(C1,A),parent(C2,B),brother(A,B).
+
+cousines(C1,C2):-
+    parent(C1,A),parent(C2,B),sister(A,B).
