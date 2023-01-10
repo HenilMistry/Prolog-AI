@@ -24,6 +24,6 @@ len_list([_ | T], Length):-
     len_list(T,Ans),Length is Ans+1.
 
 % check whether a element belongs to list or not...
-is_member(X, [X | _]):-!.
+is_member(X, [X | _]):-.
 is_member(X, [_ | Rest]):-
     is_member(X, Rest).
