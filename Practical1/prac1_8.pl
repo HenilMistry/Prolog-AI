@@ -16,3 +16,5 @@ contact(heal,4569823107,26,12).
 contact(feni,7896523410,8,11).
 contact(alka,7567933867,13,5).
 contact(rakesh,9825546144,14,11).
+contact(P,Mo,D,M):-
+    (M > 12;M < 1),!,fail.
